@@ -1,0 +1,86 @@
+<mat-toolbar color="primary">
+    DVD Store
+
+    <ng-container *ngIf="(autenticacao$ | async) && (usuario$ | async)">
+
+        <button mat-button routerLink="/admin/home">Home</button>
+
+        <button mat-button [matMenuTriggerFor]="Filme">Filme</button>
+
+        <mat-menu #Filme="matMenu">
+            <button mat-menu-item routerLink="/admin/categoriafilme">Categoria</button>
+        </mat-menu>
+
+
+        <!--Tudo referente a Pessoas-->
+        <button mat-button [matMenuTriggerFor]="clientes">Cliente</button>
+
+        <mat-menu #clientes="matMenu">
+            <button mat-menu-item [matMenuTriggerFor]="cadastrosClientes">Cadastros</button>
+            <button mat-menu-item [matMenuTriggerFor]="consultasClientes">Consultas</button>
+        </mat-menu>
+
+        <!--Sub Menu Cadastro de Clientes-->
+        <mat-menu #cadastrosClientes="matMenu">
+            <button mat-menu-item routerLink="/cliente/clientecadastro">Cadastro de Clientes</button>
+        </mat-menu>
+
+        <!--Sub Menu Consulta de Clientes-->
+        <mat-menu #consultasClientes="matMenu">
+            <button mat-menu-item routerLink="/cliente/clienteconsulta">Consulta de Clientes</button>
+        </mat-menu>
+
+        <!--Geral-->
+        <button mat-button [matMenuTriggerFor]="gerais">Gerais</button>
+
+        <mat-menu #gerais="matMenu">
+            <button mat-menu-item [matMenuTriggerFor]="cadastrosGerais">Cadastros</button>
+            <button mat-menu-item [matMenuTriggerFor]="consultasGerais">Consultas</button>
+        </mat-menu>
+
+
+        <!--Sub Menu Cadastro Gerais-->
+        <mat-menu #cadastrosGerais="matMenu">
+            <button mat-menu-item routerLink="/main/cadastroestados">Cadastro de Estado</button>
+        </mat-menu>
+
+        <!--Sub Menu Consulta Gerais-->
+        <mat-menu #consultasGerais="matMenu">
+            <button mat-menu-item routerLink="/main/consultaestados">Consulta de Estados</button>
+        </mat-menu>
+
+        <!---->
+        <span fxFlex></span>
+
+        <button mat-icon-button [matMenuTriggerFor]="profileMenu">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+        <mat-menu xPosition="before" [overlapTrigger]="false" #profileMenu="matMenu" class="before">
+            <p class="username">{{(usuario$|async)?.email}}</p>
+            <mat-divider></mat-divider>
+            <button mat-menu-item (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon>
+          Exit
+        </button>
+        </mat-menu>
+        <button mat-icon-button (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>
+      </button>
+    </ng-container>
+
+
+
+
+    <ng-container *ngIf="!(autenticacao$ | async)">
+        <button mat-button routerLink="/auth/login">
+        <mat-icon>input</mat-icon>&nbsp;Sign In
+      </button>
+        <button mat-button routerLink="/auth/registrar">
+        <mat-icon>person_add</mat-icon>&nbsp;Sign Up
+      </button>
+    </ng-container>
+
+
+
+
+</mat-toolbar>
