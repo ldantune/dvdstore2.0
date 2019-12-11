@@ -1,20 +1,17 @@
-<h1 mat-dialog-title>Atualização Categoria</h1>
+<h1 mat-dialog-title>{{title}}</h1>
 <form [formGroup]="formRegister" (ngSubmit)="onSubmit()">
     <div mat-dialog-content fxLayout="column" fxLayoutAlign="space-around stretch">
-
         <div fxLayout="row" fxLayoutAlign="space-between stretch">
             <mat-form-field fxFlex="100">
                 <input matInput type="text" formControlName="categoria" autocomplete="categoria" placeholder="Categoria">
             </mat-form-field>
         </div>
-
     </div>
-
     <div mat-dialog-actions>
         <div fxLayout="row" fxLayoutAlign="end end">
             <button mat-button color="primary" type="submit" [disabled]="!formRegister.valid">
-                    <mat-icon>done</mat-icon>&nbsp;Salvar
-                </button>
+                <mat-icon>done</mat-icon>&nbsp;Salvar
+            </button>
         </div>
     </div>
 </form>

@@ -13,9 +13,10 @@ import { Router } from '@angular/router';
 export class CategoriaFormComponent implements OnInit {
 
   dataAtual = new Date();
+  title: string;
 
   formRegister = this.fb.group({
-    id: [undefined],
+    id: undefined,
     categoria: ['', [Validators.required]],
     dataatualizacao: ['', []]
   });
@@ -28,26 +29,31 @@ export class CategoriaFormComponent implements OnInit {
     private categoriaService: CategoriaService,
     private snackBar: MatSnackBar,
     private router: Router
-  ) { 
+  ) {
+    if (this.categoria != null) {
       this.formRegister.setValue(categoria);
+      this.title = 'Atualização Categoria';
+    } else {
+      this.title = 'Cadastro Categoria';
+    }
   }
 
   ngOnInit() {
   }
 
-  onSubmit(){
+  onSubmit() {
     let categoria: Categoria = this.formRegister.value;
-    if(!categoria.id){
+    if (!categoria.id) {
       this.addCategoria(categoria);
     } else {
       this.updateCategoria(categoria);
     }
   }
 
-  addCategoria(categoria: Categoria){
+  addCategoria(categoria: Categoria) {
     categoria.dataatualizacao = this.dataAtual;
     this.categoriaService.createOrUpdate(categoria)
-      .then(()=> {
+      .then(() => {
         this.snackBar.open('Cadastro realizado com sucesso!', 'OK', { duration: 2000 });
         this.cancelar();
       })
@@ -56,16 +62,16 @@ export class CategoriaFormComponent implements OnInit {
       })
   }
 
-  updateCategoria(categoria: Categoria){
+  updateCategoria(categoria: Categoria) {
     categoria.dataatualizacao = this.dataAtual;
     this.categoriaService.createOrUpdate(categoria)
-    .then(() => {
-      this.snackBar.open('Cadastro atualizado sucesso!', 'OK', { duration: 2000 });
-      this.cancelar();
-    })
-    .catch((e) => {
-      this.snackBar.open('Erro ao atualizar cadastro!', 'OK', { duration: 2000 });
-    })
+      .then(() => {
+        this.snackBar.open('Cadastro atualizado sucesso!', 'OK', { duration: 2000 });
+        this.cancelar();
+      })
+      .catch((e) => {
+        this.snackBar.open('Erro ao atualizar cadastro!', 'OK', { duration: 2000 });
+      })
   }
 
   cancelar(): void {

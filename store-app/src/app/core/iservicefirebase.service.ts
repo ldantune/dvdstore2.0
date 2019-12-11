@@ -23,7 +23,7 @@ export abstract class ServiceFirebase<T extends Model> implements ICrud<T>	{
 
 
     list(): Observable<T[]> {
-        return this.ref.valueChanges()
+        return this.ref.valueChanges();
     }
 
     createOrUpdate(item: T): Promise<any> {
