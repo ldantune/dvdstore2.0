@@ -16,6 +16,7 @@ import { CadastroUsuarioComponent } from './components/public/cadastro-usuario/c
 import { AngularFireStorageModule} from '@angular/fire/storage';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
     AppComponent,
     LoginComponent,
     MenuComponent,
-    CadastroUsuarioComponent
+    CadastroUsuarioComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -28,7 +28,6 @@ export class CategoriaFormComponent implements OnInit {
     private fb: FormBuilder,
     private categoriaService: CategoriaService,
     private snackBar: MatSnackBar,
-    private router: Router
   ) {
     if (this.categoria != null) {
       this.formRegister.setValue(categoria);
