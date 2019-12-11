@@ -30,9 +30,9 @@ export class LinguagemFormComponent implements OnInit {
   ) {
     if (this.linguagem != null) {
       this.formRegister.setValue(linguagem);
-      this.title = 'Atualização Cadastro Diretor';
+      this.title = 'Atualização Cadastro Linguagem';
     } else {
-      this.title = 'Novo Cadastro Diretor';
+      this.title = 'Novo Cadastro Linguagem';
     }
   }
 

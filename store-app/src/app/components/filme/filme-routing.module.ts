@@ -5,12 +5,14 @@ import { DiretorComponent } from './diretor/diretor.component';
 import { CategoriaComponent } from './categoria/categoria.component';
 import { AtorComponent } from './ator/ator.component';
 import { LinguagemComponent } from './linguagem/linguagem.component';
+import { FilmeComponent } from './filme/filme.component';
 
 
 const routes: Routes = [
   { path: 'ator', component: AtorComponent},
   { path:'categoria', component: CategoriaComponent},
   { path: 'diretor', component: DiretorComponent},
+  { path: 'filme', component: FilmeComponent},
   { path: 'linguagem', component: LinguagemComponent},
   { path: 'produtora', component: ProdutoraComponent},
   
