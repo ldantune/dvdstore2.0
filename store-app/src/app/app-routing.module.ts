@@ -11,8 +11,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'cadastro', component:CadastroUsuarioComponent},
   { path: 'admin/home', loadChildren: () => import('./components/admin/painel/painel.module').then(m => m.PainelModule), canActivate: [AuthGuardService]},
-  { path: 'admin/categoriafilme', loadChildren: () => import('./components/admin/categoria/categoria.module').then(m => m.CategoriaModule), canActivate: [AuthGuardService]},
-  { path: 'admin/diretorfilme', loadChildren: () => import('./components/admin/diretor/diretor.module').then(m => m.DiretorModule), canActivate: [AuthGuardService]},
+  { path: 'filme/categoriafilme', loadChildren: () => import('./components/filme/categoria/categoria.module').then(m => m.CategoriaModule), canActivate: [AuthGuardService]},
+  { path: 'filme/diretorfilme', loadChildren: () => import('./components/filme/diretor/diretor.module').then(m => m.DiretorModule), canActivate: [AuthGuardService]},
   {path: '**', component: NotFoundComponent}
 ];
 

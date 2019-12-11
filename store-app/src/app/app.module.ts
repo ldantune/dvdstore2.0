@@ -9,7 +9,6 @@ import { MenuComponent } from './components/admin/menu/menu.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { ComumModule } from './modules/comum/comum.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './modules/material/material.module';
 import { CadastroUsuarioComponent } from './components/public/cadastro-usuario/cadastro-usuario.component';
