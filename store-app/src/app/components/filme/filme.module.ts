@@ -11,11 +11,14 @@ import { CategoriaComponent } from './categoria/categoria.component';
 import { CategoriaFormComponent } from './categoria/categoria-form/categoria-form.component';
 import { AtorComponent } from './ator/ator.component';
 import { AtorFormComponent } from './ator/ator-form/ator-form.component';
+import { LinguagemComponent } from './linguagem/linguagem.component';
+import { LinguagemFormComponent } from './linguagem/linguagem-form/linguagem-form.component';
 
 
 @NgModule({
-  declarations: [CategoriaComponent, CategoriaFormComponent,ProdutoraComponent, ProdutoraFormComponent, DiretorComponent, DiretorFormComponent, AtorComponent, AtorFormComponent],
-  entryComponents: [ CategoriaFormComponent, ProdutoraFormComponent, DiretorFormComponent, AtorFormComponent],
+  declarations: [CategoriaComponent, CategoriaFormComponent,ProdutoraComponent, ProdutoraFormComponent, DiretorComponent, DiretorFormComponent, AtorComponent, 
+    AtorFormComponent, LinguagemComponent, LinguagemFormComponent],
+  entryComponents: [ CategoriaFormComponent, ProdutoraFormComponent, DiretorFormComponent, AtorFormComponent, LinguagemFormComponent],
   imports: [
     ComumModule,
     FilmeRoutingModule
