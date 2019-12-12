@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>{{title}}</h1>
+<form [formGroup]="formRegister" (ngSubmit)="onSubmit()">
+    <div mat-dialog-content fxLayout="column" fxLayoutAlign="space-around stretch">
+        <div fxLayout="row" fxLayoutAlign="space-between stretch">
+            <mat-form-field fxFlex="100">
+                <mat-label>Ator</mat-label>
+                <mat-select formControlName="ator">
+                    <mat-option *ngFor="let ator of atores$ | async" [value]="ator">
+                        {{ator.nome}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-between stretch">
+            <mat-form-field fxFlex="100">
+                <mat-label>Filme</mat-label>
+                <mat-select formControlName="filme">
+                    <mat-option *ngFor="let filme of filmes$ | async" [value]="filme.titulo">
+                        {{filme.titulo}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <div fxLayout="row" fxLayoutAlign="end end">
+            <button mat-button color="primary" type="submit" [disabled]="!formRegister.valid">
+                <mat-icon>done</mat-icon>&nbsp;{{edit}}
+            </button>
+        </div>
+    </div>
+</form>
+<div fxLayout="row" fxLayoutAlign="end end">
+    <button mat-button color="warn" (click)="cancelar()">Cancel</button>
+</div>

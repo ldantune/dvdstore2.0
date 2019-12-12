@@ -15,12 +15,15 @@ import { LinguagemComponent } from './linguagem/linguagem.component';
 import { LinguagemFormComponent } from './linguagem/linguagem-form/linguagem-form.component';
 import { FilmeComponent } from './filme/filme.component';
 import { FilmeFormComponent } from './filme/filme-form/filme-form.component';
+import { AtorFilmeComponent } from './ator-filme/ator-filme.component';
+import { AtorFilmeFormComponent } from './ator-filme/ator-filme-form/ator-filme-form.component';
 
 
 @NgModule({
   declarations: [CategoriaComponent, CategoriaFormComponent,ProdutoraComponent, ProdutoraFormComponent, DiretorComponent, DiretorFormComponent, AtorComponent, 
-    AtorFormComponent, LinguagemComponent, LinguagemFormComponent, FilmeComponent, FilmeFormComponent],
-  entryComponents: [ CategoriaFormComponent, ProdutoraFormComponent, DiretorFormComponent, AtorFormComponent, LinguagemFormComponent, FilmeFormComponent],
+    AtorFormComponent, LinguagemComponent, LinguagemFormComponent, FilmeComponent, FilmeFormComponent, AtorFilmeComponent, AtorFilmeFormComponent],
+  entryComponents: [ CategoriaFormComponent, ProdutoraFormComponent, DiretorFormComponent, AtorFormComponent, LinguagemFormComponent, FilmeFormComponent, 
+    AtorFilmeFormComponent],
   imports: [
     ComumModule,
     FilmeRoutingModule
