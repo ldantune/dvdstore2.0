@@ -21,6 +21,7 @@ export class FilmeFormComponent implements OnInit {
 
   dataAtual = new Date();
   title: string;
+  edit: string;
 
   formRegister = this.fb.group({
     id: [undefined],
@@ -67,8 +68,10 @@ export class FilmeFormComponent implements OnInit {
     if (this.filme != null) {
       this.formRegister.setValue(filme);
       this.title = 'Atualização Cadastro Filme';
+      this.edit = 'Atualizar'
     } else {
       this.title = 'Novo Cadastro Filme';
+      this.edit = 'Cadastrar'
     }
   }
 
