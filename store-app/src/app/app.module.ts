@@ -16,6 +16,7 @@ import { AngularFireStorageModule} from '@angular/fire/storage';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { FooterComponent } from './components/admin/footer/footer.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     LoginComponent,
     MenuComponent,
     CadastroUsuarioComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
