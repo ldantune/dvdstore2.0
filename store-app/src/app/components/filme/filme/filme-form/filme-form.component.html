@@ -1,1 +1,95 @@
-<p>filme-form works!</p>
+<h1 mat-dialog-title>{{title}}</h1>
+<form [formGroup]="formRegister" (ngSubmit)="onSubmit()">
+    <div mat-dialog-content fxLayout="column" fxLayoutAlign="space-around stretch">
+        <div fxLayout="row" fxLayoutAlign="space-between stretch">
+            <mat-form-field fxFlex="44">
+                <input matInput type="text" formControlName="titulo" autocomplete="titulo" placeholder="Título Filme">
+            </mat-form-field>
+
+            <mat-form-field fxFlex="14">
+                <input matInput [matDatepicker]="anolancamento" formControlName="anolancamento" placeholder="Data Lançamento">
+                <mat-datepicker-toggle matSuffix [for]="anolancamento"></mat-datepicker-toggle>
+                <mat-datepicker #anolancamento></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="14">
+                <input matInput type="number" formControlName="duracaoaluguel" autocomplete="duracaoaluguel" placeholder="Dias Aluguel">
+            </mat-form-field>
+
+            <mat-form-field fxFlex="14">
+                <input matInput type="number" formControlName="taxaaluguel" autocomplete="taxaaluguel" placeholder="Valor Locação" class="example-right-align">
+                <span matPrefix>R$&nbsp;</span>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="10">
+                <input matInput type="number" formControlName="duracaofilme" autocomplete="duracaofilme" placeholder="Tempo de Filme (min)">
+            </mat-form-field>
+
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="space-between stretch">
+
+            <mat-form-field fxFlex="14">
+                <input matInput type="number" formControlName="custoreposicao" autocomplete="custoreposicao" placeholder="Valor Reposição" class="example-right-align">
+                <span matPrefix>R$&nbsp;</span>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="14">
+                <input matInput type="number" formControlName="classificacao" autocomplete="classificacao" placeholder="Classificação (Idade)">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Diretor Filme</mat-label>
+                <mat-select formControlName="diretor">
+                    <mat-option *ngFor="let diretor of diretores$ | async" [value]="diretor">
+                        {{diretor.nome}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Categoria Filme</mat-label>
+                <mat-select formControlName="categoria">
+                    <mat-option *ngFor="let categoria of categorias$ | async" [value]="categoria">
+                        {{categoria.categoria}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Produtora Filme</mat-label>
+                <mat-select formControlName="produtora">
+                    <mat-option *ngFor="let produtora of produtores$ | async" [value]="produtora">
+                        {{produtora.produtora}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-between stretch">
+            <mat-form-field fxFlex="100">
+                <input matInput type="text" formControlName="avaliacaofilme" autocomplete="avaliacaofilme" placeholder="Avaliação Filme">
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="space-between stretch">
+            <mat-form-field fxFlex="100">
+                <input matInput type="text" formControlName="descricao" autocomplete="descricao" placeholder="Descrição">
+            </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-between stretch">
+            <input type="file" #inputFile (change)="upload($event)" />
+        </div>
+        <br>
+        <div fxLayout="row" fxLayoutAlign="space-between stretch">
+            <mat-progress-bar mode="determinate" [value]="(uploadPercent | async)"></mat-progress-bar>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end end">
+        <button mat-button color="primary" type="submit" [disabled]="!formRegister.valid">
+            <mat-icon>done</mat-icon>&nbsp;Salvar
+        </button>
+    </div>
+</form>
+<div fxLayout="row" fxLayoutAlign="start end">
+    <button mat-button color="warn" (click)="cancelar()">Cancel</button>
+</div>

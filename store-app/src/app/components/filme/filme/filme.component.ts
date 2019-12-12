@@ -15,7 +15,7 @@ import { FilmeFormComponent } from './filme-form/filme-form.component';
 export class FilmeComponent implements OnInit {
 
   filmes$: Observable<Filme[]>;
-  displayedColumns = ['titulo', 'duracaofilme', 'taxaaluguel', 'avaliacaofilme', 'dataatualizacao', 'operations'];
+  displayedColumns = ['foto','titulo', 'duracaofilme', 'taxaaluguel', 'avaliacaofilme', 'dataatualizacao', 'operations'];
   filmes: Filme[] = [];
  
 
@@ -59,11 +59,11 @@ export class FilmeComponent implements OnInit {
   }
 
   novoCadastro(){
-    this.dialog.open(FilmeFormComponent, {width: '400px'});
+    this.dialog.open(FilmeFormComponent, {width: '1200px'});
   }
 
   edit(d: Filme){
-    this.dialog.open(FilmeFormComponent, { width: '400px', data: d});
+    this.dialog.open(FilmeFormComponent, { width: '1200px', data: d});
   }
 
 }
