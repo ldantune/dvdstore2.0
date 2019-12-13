@@ -42,19 +42,20 @@
         <span fxFlex></span>
 
         <button mat-icon-button [matMenuTriggerFor]="profileMenu">
-        <mat-icon>account_circle</mat-icon>
-      </button>
-        <mat-menu xPosition="before" [overlapTrigger]="false" #profileMenu="matMenu" class="before">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+
+        <mat-menu [overlapTrigger]="false" #profileMenu="matMenu" class="before">
             <p class="username">{{(usuario$|async)?.email}}</p>
             <mat-divider></mat-divider>
             <button mat-menu-item (click)="logout()">
-          <mat-icon>exit_to_app</mat-icon>
-          Exit
-        </button>
+        <mat-icon>exit_to_app</mat-icon>
+        Exit
+      </button>
         </mat-menu>
         <button mat-icon-button (click)="logout()">
-        <mat-icon>exit_to_app</mat-icon>
-      </button>
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
     </ng-container>
 
 
@@ -62,11 +63,11 @@
 
     <ng-container *ngIf="!(autenticacao$ | async)">
         <button mat-button routerLink="/auth/login">
-        <mat-icon>input</mat-icon>&nbsp;Sign In
-      </button>
+      <mat-icon>input</mat-icon>&nbsp;Sign In
+    </button>
         <button mat-button routerLink="/auth/registrar">
-        <mat-icon>person_add</mat-icon>&nbsp;Sign Up
-      </button>
+      <mat-icon>person_add</mat-icon>&nbsp;Sign Up
+    </button>
     </ng-container>
 
 
