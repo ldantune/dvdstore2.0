@@ -18,6 +18,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { MenuComponent } from './core/menu/menu.component';
 import { FooterComponent } from './core/footer/footer.component';
+import { IMaskModule } from 'angular-imask';
 
 
 
@@ -41,6 +42,7 @@ import { FooterComponent } from './core/footer/footer.component';
     FormsModule,
     MaterialModule,
     ReactiveFormsModule,
+    IMaskModule
     
   ],
   providers: [

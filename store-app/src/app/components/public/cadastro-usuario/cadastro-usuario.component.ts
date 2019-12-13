@@ -12,6 +12,13 @@ import { Usuario } from 'src/app/models/usuario.model';
 })
 export class CadastroUsuarioComponent implements OnInit {
 
+  public mask: any = {
+    mask: '+{55} (00) 0000-0000',
+    
+  };
+
+  
+
   formRegister: FormGroup = this.fb.group({
     'nome': ['', [Validators.required]],
     'sobrenome': ['', [Validators.required]],

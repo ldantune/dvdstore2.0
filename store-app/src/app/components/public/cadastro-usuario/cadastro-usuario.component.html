@@ -39,7 +39,7 @@
 
                     <div fxLayout="row" fxLayoutAlign="space-between stretch">
                         <mat-form-field fxFlex="45">
-                            <input matInput type="text" formControlName="telefone" autocomplete="telefone" placeholder="Telefone">
+                            <input [imask]="mask" matInput type="text" formControlName="telefone" autocomplete="telefone" placeholder="Telefone">
                         </mat-form-field>
                         <mat-form-field fxFlex="45">
                             <input matInput type="text" formControlName="celular" autocomplete="celular" placeholder="Celular">
