@@ -22,8 +22,7 @@
         <button mat-button [matMenuTriggerFor]="clientes">Cliente</button>
 
         <mat-menu #clientes="matMenu">
-            <button mat-menu-item [matMenuTriggerFor]="cadastrosClientes">Cadastros</button>
-            <button mat-menu-item [matMenuTriggerFor]="consultasClientes">Consultas</button>
+            <button mat-menu-item routerLink="/cliente/cliente">Cliente</button>
         </mat-menu>
 
         <!--Sub Menu Cadastro de Clientes-->
@@ -31,29 +30,13 @@
             <button mat-menu-item routerLink="/cliente/clientecadastro">Cadastro de Clientes</button>
         </mat-menu>
 
-        <!--Sub Menu Consulta de Clientes-->
-        <mat-menu #consultasClientes="matMenu">
-            <button mat-menu-item routerLink="/cliente/clienteconsulta">Consulta de Clientes</button>
-        </mat-menu>
-
         <!--Geral-->
         <button mat-button [matMenuTriggerFor]="gerais">Gerais</button>
 
         <mat-menu #gerais="matMenu">
-            <button mat-menu-item [matMenuTriggerFor]="cadastrosGerais">Cadastros</button>
-            <button mat-menu-item [matMenuTriggerFor]="consultasGerais">Consultas</button>
+            <button mat-menu-item routerLink="/admin/estado">Estado</button>
         </mat-menu>
 
-
-        <!--Sub Menu Cadastro Gerais-->
-        <mat-menu #cadastrosGerais="matMenu">
-            <button mat-menu-item routerLink="/main/cadastroestados">Cadastro de Estado</button>
-        </mat-menu>
-
-        <!--Sub Menu Consulta Gerais-->
-        <mat-menu #consultasGerais="matMenu">
-            <button mat-menu-item routerLink="/main/consultaestados">Consulta de Estados</button>
-        </mat-menu>
 
         <!---->
         <span fxFlex></span>

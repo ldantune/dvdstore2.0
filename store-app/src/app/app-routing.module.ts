@@ -10,8 +10,9 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'cadastro', component:CadastroUsuarioComponent},
-  { path: 'admin/home', loadChildren: () => import('./components/admin/painel/painel.module').then(m => m.PainelModule), canActivate: [AuthGuardService]},
   { path: 'filme', loadChildren: () => import('./components/filme/filme.module').then(m => m.FilmeModule), canActivate: [AuthGuardService]},
+  { path: 'admin', loadChildren: () => import('./components/admin/admin.module').then(m => m.AdminModule), canActivate: [AuthGuardService]},
+  { path: 'cliente', loadChildren: () => import('./components/cliente/cliente.module').then(m => m.ClienteModule), canActivate: [AuthGuardService]},
   {path: '**', component: NotFoundComponent}
 ];
 

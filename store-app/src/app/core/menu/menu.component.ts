@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Usuario } from 'src/app/models/usuario.model';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Router } from '@angular/router';
-import { Usuario } from 'src/app/models/usuario.model';
+
 
 @Component({
   selector: 'app-menu',
