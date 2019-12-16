@@ -3,7 +3,7 @@ import { Produtora } from 'src/app/models/produtora.model';
 import { ProdutoraFormComponent } from './produtora-form/produtora-form.component';
 import { Observable, Subject } from 'rxjs';
 import { ProdutoraService } from 'src/app/services/produtora.service';
-import { MatSnackBar, MatDialog, MatTableDataSource, MatPaginator } from '@angular/material';
+import { MatSnackBar, MatDialog, MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { takeUntil } from 'rxjs/operators';
 import Swal from 'sweetalert2';
 
@@ -14,17 +14,13 @@ import Swal from 'sweetalert2';
 })
 export class ProdutoraComponent implements OnInit {
 
-  produtoras$: Observable<Produtora[]>;
   displayedColumns = ['produtora', 'dataatualizacao', 'operations'];
-  produtoras: Produtora[] = [];
-
-  dataSource: MatTableDataSource<Produtora>;
-
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  produtoras: MatTableDataSource<Produtora>;
  
-
   private unsubscribe$: Subject<any> = new Subject<any>();
 
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true}) sort: MatSort;
   @ViewChild('produtora', { static: false }) produtoraNome: ElementRef;
 
   constructor(
@@ -33,25 +29,26 @@ export class ProdutoraComponent implements OnInit {
     private dialog: MatDialog
   ) { }
 
-
   ngOnInit() {
     this.produtoraService.list()
       .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((produtora) => this.produtoras = produtora);
-    // this.produtoraService.list()
-    //   .subscribe(
-    //     data => {
-    //       console.log(this.dataSource)
-    //       const produtoras = data['data'] as Produtora[];
-    //       this.dataSource = new MatTableDataSource<Produtora>(produtoras);
-    //       this.dataSource.paginator = this.paginator;
-    //       console.log(this.dataSource)
-    //     }
-    //   );
+      .subscribe((produtora) => {
+        this.produtoras = new MatTableDataSource<Produtora>(produtora);
+        this.produtoras.sort = this.sort;
+        this.produtoras.paginator = this.paginator;
+      });
   }
 
   ngOnDestroy() {
     this.unsubscribe$.next();
+  }
+
+  applyFilter(filterValue: string) {
+    this.produtoras.filter = filterValue.trim().toLowerCase();
+
+    if (this.produtoras.paginator) {
+      this.produtoras.paginator.firstPage();
+    }
   }
 
   del(produtora: Produtora){
@@ -79,5 +76,4 @@ export class ProdutoraComponent implements OnInit {
   edit(p: Produtora){
     this.dialog.open(ProdutoraFormComponent, { width: '400px', data: p});
   }
-
 }
