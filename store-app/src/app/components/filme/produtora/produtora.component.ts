@@ -19,7 +19,7 @@ export class ProdutoraComponent implements OnInit {
  
   private unsubscribe$: Subject<any> = new Subject<any>();
 
-  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true}) sort: MatSort;
   @ViewChild('produtora', { static: false }) produtoraNome: ElementRef;
 
@@ -43,7 +43,7 @@ export class ProdutoraComponent implements OnInit {
     this.unsubscribe$.next();
   }
 
-  applyFilter(filterValue: string) {
+  filtro(filterValue: string) {
     this.produtoras.filter = filterValue.trim().toLowerCase();
 
     if (this.produtoras.paginator) {
