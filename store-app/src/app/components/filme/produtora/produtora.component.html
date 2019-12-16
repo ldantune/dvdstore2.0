@@ -36,6 +36,8 @@
             <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
+        <mat-paginator #paginator [pageSize]="1" [pageSizeOptions]="[5, 10, 15, 25]">
+        </mat-paginator>
 
     </div>
 </ng-container>

@@ -3,7 +3,7 @@ import { Produtora } from 'src/app/models/produtora.model';
 import { ProdutoraFormComponent } from './produtora-form/produtora-form.component';
 import { Observable, Subject } from 'rxjs';
 import { ProdutoraService } from 'src/app/services/produtora.service';
-import { MatSnackBar, MatDialog } from '@angular/material';
+import { MatSnackBar, MatDialog, MatTableDataSource, MatPaginator } from '@angular/material';
 import { takeUntil } from 'rxjs/operators';
 import Swal from 'sweetalert2';
 
@@ -17,6 +17,10 @@ export class ProdutoraComponent implements OnInit {
   produtoras$: Observable<Produtora[]>;
   displayedColumns = ['produtora', 'dataatualizacao', 'operations'];
   produtoras: Produtora[] = [];
+
+  dataSource: MatTableDataSource<Produtora>;
+
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
  
 
   private unsubscribe$: Subject<any> = new Subject<any>();
@@ -34,6 +38,16 @@ export class ProdutoraComponent implements OnInit {
     this.produtoraService.list()
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((produtora) => this.produtoras = produtora);
+    // this.produtoraService.list()
+    //   .subscribe(
+    //     data => {
+    //       console.log(this.dataSource)
+    //       const produtoras = data['data'] as Produtora[];
+    //       this.dataSource = new MatTableDataSource<Produtora>(produtoras);
+    //       this.dataSource.paginator = this.paginator;
+    //       console.log(this.dataSource)
+    //     }
+    //   );
   }
 
   ngOnDestroy() {
