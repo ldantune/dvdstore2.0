@@ -6,6 +6,8 @@ import { ClienteService } from 'src/app/services/cliente.service';
 import { takeUntil } from 'rxjs/operators';
 import Swal from 'sweetalert2';
 import { ClienteFormComponent } from './cliente-form/cliente-form.component';
+import { EstadoService } from 'src/app/services/estado.service';
+import { Estado } from 'src/app/models/estado.model';
 
 @Component({
   selector: 'app-cliente',
@@ -15,9 +17,10 @@ import { ClienteFormComponent } from './cliente-form/cliente-form.component';
 export class ClienteComponent implements OnInit {
 
   clientes$: Observable<Cliente[]>;
-  displayedColumns = ['nome', 'sobrenome', 'cpf', 'celular', 'dataatualizacao', 'operations'];
+  displayedColumns = ['ativo','nome', 'sobrenome', 'cpf', 'celular','datacriacao', 'dataatualizacao', 'operations'];
   clientes: MatTableDataSource<Cliente>;
  
+  
 
   private unsubscribe$: Subject<any> = new Subject<any>();
 
@@ -76,11 +79,11 @@ export class ClienteComponent implements OnInit {
   }
 
   novoCadastro(){
-    this.dialog.open(ClienteFormComponent, {width: '400px'});
+    this.dialog.open(ClienteFormComponent, {width: '800px'});
   }
 
   edit(d: Cliente){
-    this.dialog.open(ClienteFormComponent, { width: '400px', data: d});
+    this.dialog.open(ClienteFormComponent, { width: '800px', data: d});
   }
 
 }
