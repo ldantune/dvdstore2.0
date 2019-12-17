@@ -117,7 +117,7 @@ export class FilmeFormComponent implements OnInit {
   async upload(event) {
     this.complete = false;
     const file = event.target.files[0];
-    const path = `funcionarios/${new Date().getTime().toString()}`;
+    const path = `filmes/${new Date().getTime().toString()}`;
     const fileRef = this.storage.ref(path);
     this.task = this.storage.upload(path, file);
     this.task.then(up => {
