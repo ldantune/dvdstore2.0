@@ -6,6 +6,8 @@ import { ClienteFormComponent } from './cliente/cliente-form/cliente-form.compon
 import { ComumModule } from 'src/app/modules/comum/comum.module';
 
 
+
+
 @NgModule({
   declarations: [ClienteComponent, ClienteFormComponent],
   entryComponents: [ ClienteFormComponent],

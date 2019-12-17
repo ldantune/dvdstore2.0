@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { Usuario } from 'src/app/models/usuario.model';
 
+
+
 @Component({
   selector: 'app-cadastro-usuario',
   templateUrl: './cadastro-usuario.component.html',

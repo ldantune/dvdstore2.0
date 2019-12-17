@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/public/login/login.component';
 
 import { AngularFireModule } from '@angular/fire';
-import { environment } from 'src/environments/environment';
+
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './modules/material/material.module';
@@ -19,6 +19,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { MenuComponent } from './core/menu/menu.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { IMaskModule } from 'angular-imask';
+import { environment } from 'src/environments/environment';
 
 
 

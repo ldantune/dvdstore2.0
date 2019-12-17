@@ -22,6 +22,7 @@ export class CategoriaComponent implements OnInit {
   private unsubscribe$: Subject<any> = new Subject<any>();
 
   @ViewChild('categoria', { static: false }) categoriaNome: ElementRef;
+  
 
   constructor(
     private categoriaService: CategoriaService,
@@ -57,18 +58,6 @@ export class CategoriaComponent implements OnInit {
       }
     })
   }
-
-  
-  // del(id: string) {
-  //   this.categoriaService.delete(id)
-  //     .then(() => {
-  //       this.snackBar.open('Categoria excluido com sucesso!', 'OK', { duration: 2000 });
-  //     })
-  //     .catch((e) => {
-  //       this.snackBar.open('Erro ao  excluir categoria!', 'OK', { duration: 2000 });
-  //     })
-  // }
-
 
   novoCadastro(){
     this.dialog.open(CategoriaFormComponent, {width: '400px'});

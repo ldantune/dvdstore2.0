@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 
 import { FilmeRoutingModule } from './filme-routing.module';
-import { ComumModule } from 'src/app/modules/comum/comum.module';
+
 import { ProdutoraComponent } from './produtora/produtora.component';
 import { ProdutoraFormComponent } from './produtora/produtora-form/produtora-form.component';
 import { DiretorComponent } from './diretor/diretor.component';
@@ -17,6 +17,7 @@ import { FilmeComponent } from './filme/filme.component';
 import { FilmeFormComponent } from './filme/filme-form/filme-form.component';
 import { AtorFilmeComponent } from './ator-filme/ator-filme.component';
 import { AtorFilmeFormComponent } from './ator-filme/ator-filme-form/ator-filme-form.component';
+import { ComumModule } from 'src/app/modules/comum/comum.module';
 
 
 @NgModule({

@@ -1,11 +1,12 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { Ator } from 'src/app/models/ator.model';
+
 import { AtorService } from 'src/app/services/ator.service';
 import { MatSnackBar, MatDialog, MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { takeUntil } from 'rxjs/operators';
 import Swal from 'sweetalert2';
 import { AtorFormComponent } from './ator-form/ator-form.component';
+import { Ator } from 'src/app/models/ator.model';
 
 @Component({
   selector: 'app-ator',

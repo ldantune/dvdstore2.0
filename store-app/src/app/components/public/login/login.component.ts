@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 import Swal from 'sweetalert2'
-import { AuthenticationService } from 'src/app/services/authentication.service';
+
 import { Router } from '@angular/router';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-login',
